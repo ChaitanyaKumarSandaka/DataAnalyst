@@ -154,7 +154,50 @@
     .nav-links a{font-size:0.75rem}
     .about-grid{grid-template-columns:1fr}
     .edu-card{flex-direction:column;gap:0.5rem}
+    .form-row{grid-template-columns:1fr}
+    .hire-form-wrap{padding:1.5rem}
   }
+
+  /* HIRE FORM */
+  .hire-form-wrap{
+    max-width:620px;margin:2.5rem auto 0;
+    background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.25);
+    border-radius:6px;padding:2.5rem;text-align:left;
+  }
+  .hire-form-wrap h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold2);margin-bottom:0.4rem}
+  .hire-form-wrap .form-sub{font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:2rem}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .form-group{margin-bottom:1.2rem;display:flex;flex-direction:column}
+  .form-group label{font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:6px}
+  .form-group input,
+  .form-group select,
+  .form-group textarea{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+    color:var(--white);border-radius:3px;padding:10px 14px;font-size:0.9rem;
+    font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus{border-color:var(--gold)}
+  .form-group select option{background:var(--navy);color:var(--white)}
+  .form-group textarea{resize:vertical;min-height:110px}
+  .form-submit{
+    width:100%;background:var(--gold);color:var(--navy);
+    font-weight:700;font-size:0.9rem;letter-spacing:1.5px;text-transform:uppercase;
+    padding:14px;border:none;border-radius:3px;cursor:pointer;
+    transition:background 0.2s,transform 0.2s;font-family:'DM Sans',sans-serif;margin-top:0.5rem;
+  }
+  .form-submit:hover{background:var(--gold2);transform:translateY(-2px)}
+  .form-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+  .toast{
+    display:none;position:fixed;bottom:2rem;right:2rem;z-index:999;
+    background:var(--navy);border:1px solid var(--gold);color:var(--white);
+    padding:14px 24px;border-radius:4px;font-size:0.9rem;
+    box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  }
+  .toast.show{display:flex;align-items:center;gap:10px}
+  .toast.success{border-color:#4ade80}
+  .toast.error{border-color:#f87171}
 </style>
 </head>
 <body>
@@ -167,17 +210,21 @@
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+    <a href="https://www.linkedin.com/in/chaitanya-data-analyst" target="_blank">LinkedIn</a>
+    <a href="https://github.com/ChaitanyaKumarSandaka" target="_blank">GitHub</a>
   </div>
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-badge">Power BI Developer · AZ-104 Certified</div>
+  <div class="hero-badge">DATA ANALYST</div>
   <h1>Chaitanya Kumar<br><span>Sandaka</span></h1>
   <div class="hero-sub">Transforming Raw Data into Actionable Insights</div>
-  <div class="hero-loc">📍 Hyderabad, India · 3 Years at TCS</div>
+  <div class="hero-loc">📍 Hyderabad, India</div>
   <div class="hero-contacts">
     <a href="mailto:chaitanyasandaka20@gmail.com">chaitanyasandaka20@gmail.com</a>
     <a href="tel:+916300905863">+91 63009 05863</a>
+    <a href="https://www.linkedin.com/in/chaitanya-data-analyst" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/ChaitanyaKumarSandaka" target="_blank">🐙 GitHub</a>
   </div>
   <div class="hero-scroll">↓ scroll to explore</div>
 </section>
@@ -192,9 +239,8 @@
         <div class="about-stat"><span class="num">TCS</span><span class="lbl">Current Employer</span></div>
       </div>
       <div class="about-text">
-        <p>Power BI Developer with 3 years of hands-on experience designing, developing, and deploying interactive dashboards and business intelligence solutions at Tata Consultancy Services, Hyderabad.</p>
+        <p>Power BI Developer with 3+ years of experience in designing and developing interactive dashboards and reports. Strong expertise in Power BI, DAX, Power Query, and SQL, with hands-on experience in data modeling (star schema), data visualization, performance optimization, and implementing Row-Level Security (RLS) and Power BI Service (scheduled refresh, publishing).</p>
         <p>Skilled in the full BI stack — from data extraction and ETL workflows to advanced DAX modelling, Row-Level Security, and scheduled refreshes — transforming complex raw data into clear, decision-ready insights for business stakeholders.</p>
-        <p>Background in Electrical & Electronics Engineering (B.Tech, JNTUK, 2022), bringing a strong analytical foundation to every data challenge.</p>
         <div class="cert-badge">✦ Microsoft Certified: Azure Administrator Associate (AZ-104)</div>
       </div>
     </div>
@@ -215,25 +261,23 @@
         <span class="skill-tag">Scheduled Refresh</span>
       </div>
       <div class="skill-card">
-        <h4>Data Modelling</h4>
-        <span class="skill-tag">DAX</span>
+        <h4>Data Modeling & Transformation</h4>
+        <span class="skill-tag">Star Schema</span>
+		<span class="skill-tag">DAX (MTD, QTD, YTD, Time Intelligence</span>
         <span class="skill-tag">Power Query (M)</span>
-        <span class="skill-tag">MTD / QTD / YTD</span>
-        <span class="skill-tag">Rolling Calc</span>
       </div>
       <div class="skill-card">
-        <h4>ETL & Integration</h4>
-        <span class="skill-tag">Pentaho</span>
+        <h4>ETL & Data Integration</h4>
+        <span class="skill-tag">Pentaho (ETL</span>
         <span class="skill-tag">Azure Data Factory</span>
         <span class="skill-tag">SQL Server</span>
         <span class="skill-tag">MySQL</span>
       </div>
       <div class="skill-card">
-        <h4>Other Tools</h4>
+        <h4>Other Tools & Technologies</h4>
         <span class="skill-tag">SQL</span>
         <span class="skill-tag">Advanced Excel</span>
-        <span class="skill-tag">Azure (AZ-104)</span>
-        <span class="skill-tag">Stakeholder Mgmt</span>
+        <span class="skill-tag">Microsoft Azure (AZ-104 Certified</span>
       </div>
     </div>
   </div>
@@ -252,13 +296,13 @@
         <div class="exp-period">Nov 2022 – Present</div>
       </div>
       <ul class="exp-list">
-        <li>Designed and developed interactive Power BI dashboards with advanced DAX measures for metrics like MTD, QTD, YTD, and rolling calculations.</li>
-        <li>Built robust data models and performed data transformation using Power Query for clean, structured reporting datasets.</li>
-        <li>Implemented Row-Level Security (RLS) and scheduled refreshes for secure and up-to-date reports.</li>
-        <li>Developed and automated ETL workflows using Pentaho to extract, transform, and load data from SQL Server, Excel, and other sources.</li>
-        <li>Conducted SQL queries for data extraction, optimisation, and validation to support dashboard reporting.</li>
-        <li>Collaborated with business stakeholders to gather requirements, define KPIs, and deliver actionable reports.</li>
-        <li>Implemented beginner-level Azure Data Factory pipelines for scheduled ETL workflows.</li>
+        <li>Designed and delivered Power BI dashboards tracking key business KPIs, enabling faster and data-driven decision-making.</li>
+        <li>Developed DAX-based metrics (MTD, QTD, YTD, rolling) to support accurate time-intelligence reporting.</li>
+        <li>Designed star schema data models and transformed data using Power Query, improving report performance and scalability.</li>
+        <li>Implemented Row-Level Security (RLS) to enforce role-based access across business users.</li>
+        <li>Managed Power BI Service (publishing, scheduled refresh), ensuring reliable and up-to-date reporting.</li>
+        <li>Wrote optimized SQL queries for data extraction, validation, and performance tuning.</li>
+        <li>Partnered with stakeholders to define KPIs and translate business requirements into actionable dashboards.</li>
       </ul>
     </div>
   </div>
@@ -301,7 +345,7 @@
       <div class="edu-year">2022</div>
       <div class="edu-info">
         <h3>Bachelor of Technology – Electrical & Electronics Engineering</h3>
-        <p>Jawaharlal Nehru Technological University Kakinada &nbsp;·&nbsp; 2018 – 2022</p>
+        <p>Gudlavalleru Engineering College  &nbsp;·&nbsp; 2018 – 2022</p>
       </div>
     </div>
   </div>
@@ -316,11 +360,114 @@
       <div class="contact-item">Email: <a href="mailto:chaitanyasandaka20@gmail.com">chaitanyasandaka20@gmail.com</a></div>
       <div class="contact-item">Phone: <a href="tel:+916300905863">+91 63009 05863</a></div>
       <div class="contact-item">Location: Hyderabad, India</div>
+      <div class="contact-item"><a href="https://www.linkedin.com/in/chaitanya-data-analyst" target="_blank">🔗 LinkedIn Profile</a></div>
+      <div class="contact-item"><a href="https://github.com/ChaitanyaKumarSandaka" target="_blank">🐙 GitHub Profile</a></div>
     </div>
+    <!-- ENQUIRY FORM -->
+    <div class="hire-form-wrap">
+      <h3>Send a Project Inquiry</h3>
+      <p class="form-sub">Fill in the details below — I'll get back to you within 24 hours.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="f-name" placeholder="Rahul Sharma">
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="f-email" placeholder="rahul@company.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="text" id="f-phone" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Service Needed *</label>
+          <select id="f-service">
+            <option value="">Select a service…</option>
+            <option>Power BI Dashboard</option>
+            <option>Data Modeling & DAX</option>
+            <option>ETL & Data Pipelines</option>
+            <option>Data Cleaning & SQL</option>
+            <option>BI Consulting</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Budget Range</label>
+        <select id="f-budget">
+          <option value="">Prefer not to say</option>
+          <option>Under ₹10,000</option>
+          <option>₹10,000 – ₹30,000</option>
+          <option>₹30,000 – ₹75,000</option>
+          <option>₹75,000+</option>
+          <option>Let's discuss</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Project Details *</label>
+        <textarea id="f-message" placeholder="Briefly describe your project, timeline, and what you need…"></textarea>
+      </div>
+      <button class="form-submit" id="submitBtn" onclick="submitForm()">Send Inquiry →</button>
+    </div>
+
   </div>
 </section>
 
 <footer>© 2026 Chaitanya Kumar Sandaka · Power BI Developer</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEif7iUIc98HS8Fg3UaqX0HS7DDFfgFTzOWaBoITeTCSvkBbNkYJcs9jnMr945qkyKgw/exec";
+
+  function showToast(msg, type) {
+    const t = document.getElementById("toast");
+    t.textContent = (type === "success" ? "✅ " : "❌ ") + msg;
+    t.className = "toast show " + type;
+    setTimeout(() => { t.className = "toast"; }, 5000);
+  }
+
+  async function submitForm() {
+    const name    = document.getElementById("f-name").value.trim();
+    const email   = document.getElementById("f-email").value.trim();
+    const phone   = document.getElementById("f-phone").value.trim();
+    const service = document.getElementById("f-service").value;
+    const budget  = document.getElementById("f-budget").value;
+    const message = document.getElementById("f-message").value.trim();
+    const btn     = document.getElementById("submitBtn");
+
+    if (!name || !email || !service || !message) {
+      showToast("Please fill in all required fields.", "error"); return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showToast("Please enter a valid email address.", "error"); return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, service, budget, message })
+      });
+      showToast("Inquiry sent! I'll get back to you within 24 hours.", "success");
+      ["f-name","f-email","f-phone","f-message"].forEach(id => document.getElementById(id).value = "");
+      document.getElementById("f-service").value = "";
+      document.getElementById("f-budget").value = "";
+    } catch(err) {
+      showToast("Something went wrong. Please email me directly.", "error");
+    }
+
+    btn.disabled = false;
+    btn.textContent = "Send Inquiry →";
+  }
+</script>
 
 </body>
 </html>
